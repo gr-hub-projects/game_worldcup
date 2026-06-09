@@ -16,7 +16,7 @@
 html,body{width:100%;min-height:100%;background:radial-gradient(circle at 50% 0%,#123225 0%,#07120d 48%,#040707 100%);font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,Helvetica,Arial,sans-serif;overflow:hidden;color:var(--text);}
 body{display:grid;place-items:center;min-height:100dvh;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);}
 button{font-family:inherit;}
-#root{width:var(--w);height:var(--h);min-height:560px;max-height:900px;position:relative;overflow:hidden;background:#07120d;border-inline:1px solid rgba(255,255,255,.04);box-shadow:0 26px 80px rgba(0,0,0,.35);}
+#root{width:var(--w);height:var(--h);min-height:560px;position:relative;overflow:hidden;background:#07120d;border-inline:1px solid rgba(255,255,255,.04);box-shadow:0 26px 80px rgba(0,0,0,.35);}
 #root::before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 50% 12%,rgba(0,229,160,.16),transparent 27%),radial-gradient(circle at 88% 22%,rgba(255,214,10,.10),transparent 22%);pointer-events:none;z-index:0;}
 .screen{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(18px,3vw,34px);opacity:0;pointer-events:none;transform:translateY(10px);transition:opacity .28s ease,transform .28s ease;}
 .screen.active{opacity:1;pointer-events:auto;transform:translateY(0);}
@@ -79,7 +79,7 @@ button{font-family:inherit;}
 .pitch::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 64px),radial-gradient(ellipse at 50% 82%,rgba(255,255,255,.12),transparent 22%);opacity:.6;}
 .pitch::after{content:"";position:absolute;left:50%;bottom:42px;width:260px;height:128px;transform:translateX(-50%);border:2px solid rgba(255,255,255,.13);border-radius:130px 130px 0 0;border-bottom:0;}
 .grain{position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:18px 18px;opacity:.12;}
-.goal-area{position:absolute;top:clamp(18px,4dvh,48px);left:50%;transform:translateX(-50%);width:clamp(270px,54vw,720px);max-width:calc(100vw - 32px);height:clamp(104px,17dvh,164px);z-index:4;}
+.goal-area{position:absolute;top:clamp(26px,6dvh,74px);left:50%;transform:translateX(-50%);width:clamp(300px,58vw,860px);max-width:calc(100vw - 32px);height:clamp(116px,18dvh,180px);z-index:4;}
 .goal-net{position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.075) 0,rgba(255,255,255,.075) 1px,transparent 1px,transparent 22px),repeating-linear-gradient(0deg,rgba(255,255,255,.075) 0,rgba(255,255,255,.075) 1px,transparent 1px,transparent 20px);transform:perspective(220px) rotateX(5deg);}
 .goalpost{position:absolute;background:#f2f2f2;border-radius:4px;box-shadow:0 6px 12px rgba(0,0,0,.24);}
 .gp-l{left:-5px;top:0;width:10px;height:calc(100% + 6px)}.gp-r{right:-5px;top:0;width:10px;height:calc(100% + 6px)}.gp-top{top:-5px;left:-5px;right:-5px;height:10px}.goal-shadow{position:absolute;bottom:-10px;left:8px;right:8px;height:11px;background:rgba(0,0,0,.42);filter:blur(7px);border-radius:50%;}
@@ -87,7 +87,7 @@ button{font-family:inherit;}
 .target-grid.show{opacity:1;transform:scale(1);}
 .tcell{border:1px dashed rgba(255,255,255,.24);border-radius:10px;background:rgba(255,255,255,.025);}
 .penalty-spot{position:absolute;bottom:clamp(96px,15dvh,150px);left:50%;transform:translateX(-50%);width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.48);z-index:2;box-shadow:0 0 0 12px rgba(255,255,255,.025);}
-#keeper{position:absolute;top:44px;left:calc(50% - 26px);width:52px;height:72px;z-index:10;touch-action:none;filter:drop-shadow(0 12px 16px rgba(0,0,0,.28));}
+#keeper{position:absolute;top:44px;left:calc(50% - 26px);width:52px;height:72px;z-index:10;touch-action:none;filter:drop-shadow(0 12px 16px rgba(0,0,0,.28));will-change:left,top,transform;}
 .keeper-body{width:52px;height:72px;position:relative;display:flex;flex-direction:column;align-items:center;}
 .keeper-head{width:29px;height:29px;border-radius:50%;background:#f2c196;border:2px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;font-size:14px;z-index:2;transition:transform .18s;}
 .keeper-shirt{width:41px;height:33px;border-radius:8px 8px 3px 3px;background:linear-gradient(180deg,#ff7c3a,#de4f18);margin-top:-5px;display:flex;align-items:center;justify-content:center;font-size:10px;color:rgba(255,255,255,.92);font-weight:950;transition:background .25s ease,box-shadow .25s ease,transform .25s ease;}
@@ -110,7 +110,7 @@ button{font-family:inherit;}
 .pause-modal{position:absolute;inset:0;background:rgba(0,0,0,.55);z-index:50;display:none;place-items:center;padding:28px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}.pause-modal.show{display:grid}.pause-card{width:100%;background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:22px;text-align:center;box-shadow:0 24px 80px rgba(0,0,0,.35);}.pause-title{font-size:24px;font-weight:950;margin-bottom:8px}.pause-text{font-size:13px;color:var(--text2);line-height:1.4;margin-bottom:18px}.kbd{display:none;font-size:10px;color:var(--text3);margin-top:4px}@media (pointer:fine){.kbd{display:block}}
 @media (min-width:700px){#s-start .rules-card,#s-start .stats-strip,#s-start .mode-card,#s-start .btn-primary,#s-end .score-card,#s-end .final-detail,#s-end .qr-card,#s-end .end-actions,#s-end .sc-labels{width:min(100%,520px)}.game-title{font-size:clamp(38px,5vw,58px)}.goal-area{width:clamp(330px,50vw,760px)}}
 @media (max-width:360px){.screen{padding:18px}.hud{grid-template-columns:64px 1fr 64px}.hud-num{font-size:26px}.game-title{font-size:34px}.rule-text{font-size:12px}.goal-area{width:78%}}
-@media (orientation:landscape) and (max-height:540px){.screen{padding:16px}.logo-ring{width:66px;height:66px}.logo-inner{font-size:30px}.rules-card{display:none}.stats-strip{margin-bottom:8px}.pitch::after{display:none}.qr-card{display:none}.topbar{padding-top:max(8px,var(--safe-top))}.hud{grid-template-columns:64px 1fr 64px}.hud-score{padding:5px}.hud-num{font-size:23px}.phase-badge{padding:4px 9px}.goal-area{top:12px;height:86px;width:clamp(250px,45vw,520px)}#instruction{bottom:10px}}
+@media (orientation:landscape) and (max-height:540px){.screen{padding:16px}.logo-ring{width:66px;height:66px}.logo-inner{font-size:30px}.rules-card{display:none}.stats-strip{margin-bottom:8px}.pitch::after{display:none}.qr-card{display:none}.topbar{padding-top:max(8px,var(--safe-top))}.hud{grid-template-columns:64px 1fr 64px}.hud-score{padding:5px}.hud-num{font-size:23px}.phase-badge{padding:4px 9px}.goal-area{top:18px;height:94px;width:clamp(280px,52vw,560px)}#instruction{bottom:10px}}
 @media (max-height:690px){.logo-ring{width:76px;height:76px}.logo-inner{font-size:34px}.game-title{font-size:32px}.rules-card{padding:12px}.rule-row{padding:7px 0}.qr-card{display:none}.result-icon-wrap{width:82px;height:82px;font-size:40px}.score-card{padding:12px}.sc-num{font-size:39px}}
 </style>
 </head>
@@ -224,6 +224,7 @@ button{font-family:inherit;}
   let muted = false;
   let rafParticles = 0;
   let particles = [];
+  let resizeTimer = 0;
 
   function defaultStats(){return {wins:0,plays:0,bestDiff:0,goals:0,shots:0,saves:0,defends:0};}
   function loadStats(){try{return {...defaultStats(), ...JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEY) || '{}')};}catch{return defaultStats();}}
@@ -268,14 +269,23 @@ button{font-family:inherit;}
 
   function resizeCanvases(){
     const r = pitch.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
     [dragCanvas, fxCanvas].forEach(c => {
       c.width = Math.floor(r.width*dpr); c.height = Math.floor(r.height*dpr);
       c.style.width = r.width+'px'; c.style.height = r.height+'px';
       const ctx = c.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
     });
   }
-  window.addEventListener('resize', resizeCanvases);
+  function handleResize(){
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      resizeCanvases();
+      if(G && $('s-game').classList.contains('active') && !G.animating){
+        syncResponsiveLayout();
+      }
+    }, 80);
+  }
+  window.addEventListener('resize', handleResize);
 
   function pitchRect(){return pitch.getBoundingClientRect();}
   function goalBox(){
@@ -310,13 +320,33 @@ button{font-family:inherit;}
     const pr = pitchRect();
     return pr.height - clamp(pr.height * 0.16, 96, 150);
   }
+  function keeperHomeY(){
+    const gb = goalBox();
+    return gb.top + gb.height * 0.66;
+  }
+  function syncResponsiveLayout(){
+    const pr = pitchRect();
+    const gb = goalBox();
+    const kx = clamp(G?.gkX || (gb.left + gb.width/2), gb.left + 28, gb.right - 28);
+    setBall(pr.width/2, shotStartY(), 'none', 1, 0);
+    setKeeperCenter(kx, 'none', keeperHomeY());
+    if(G?.phase === 'defend'){
+      keeper.classList.remove('cpu-keeper');
+      keeper.classList.add('player-keeper');
+      keeper.querySelector('.keeper-shirt').textContent='YOU';
+    }else{
+      keeper.classList.remove('player-keeper');
+      keeper.classList.add('cpu-keeper');
+      keeper.querySelector('.keeper-shirt').textContent='CPU';
+    }
+  }
   function resetActors(){
     resizeCanvases();
     const pr = pitchRect(); const gb = goalBox();
     ball.style.opacity = '1';
     setBall(pr.width/2, shotStartY());
-    setKeeperCenter(gb.left + gb.width/2, 'none', gb.top + 58);
-    keeper.className = 'cpu-keeper'; keeper.querySelector('.keeper-head').textContent = '😐'; keeper.querySelector('.keeper-shirt').textContent = 'CPU';
+    setKeeperCenter(gb.left + gb.width/2, 'none', keeperHomeY());
+    keeper.className = ''; keeper.classList.add('cpu-keeper'); keeper.querySelector('.keeper-head').textContent = '😐'; keeper.querySelector('.keeper-shirt').textContent = 'CPU';
     $('feedback').classList.remove('show');
     dragCtx.clearRect(0,0,pr.width,pr.height);
     $('power-row').classList.remove('show'); $('power-fill').style.width = '0%';
@@ -487,7 +517,7 @@ button{font-family:inherit;}
     const target = shotTargetFromDrag(drag);
     const gb = goalBox(); const start = ballCenter(); const kTarget = cpuKeeperDecision(target);
     const inGoal = target.x > gb.left+4 && target.x < gb.right-4 && target.y > gb.top+4 && target.y < gb.bottom+8 && !target.weak;
-    const distanceToKeeper = Math.abs(target.x - kTarget) + Math.max(0, Math.abs(target.y-(gb.top+58))-34)*.4;
+    const distanceToKeeper = Math.abs(target.x - kTarget) + Math.max(0, Math.abs(target.y-keeperHomeY())-34)*.4;
     const cornerBonus = (target.x < gb.left+45 || target.x > gb.right-45 || target.y < gb.top+32) ? -16 : 0;
     const saveThreshold = currentMode === 'pro' ? 43 : 36;
     const saved = inGoal && (distanceToKeeper + cornerBonus) < saveThreshold;
@@ -586,7 +616,7 @@ button{font-family:inherit;}
   }
   function burst(x,y,type){
     const colors = type === 'goal' ? ['#00e5a0','#ffd60a','#ffffff'] : ['#ffffff','#ffdc4a','#00e5a0'];
-    for(let i=0;i<34;i++) particles.push({x,y,vx:rnd(-3.2,3.2),vy:rnd(-4.2,1.8),life:rnd(24,42),r:rnd(2,4.5),c:colors[Math.floor(Math.random()*colors.length)]});
+    for(let i=0;i<18;i++) particles.push({x,y,vx:rnd(-3.2,3.2),vy:rnd(-4.2,1.8),life:rnd(20,34),r:rnd(2,4),c:colors[Math.floor(Math.random()*colors.length)]});
     animateParticles();
   }
   function animateParticles(){
@@ -644,7 +674,7 @@ button{font-family:inherit;}
     }catch(e){
       toast('Tap the browser fullscreen option');
     }
-    setTimeout(resizeCanvases, 120);
+    setTimeout(handleResize, 120);
   }
   function syncFullscreenButtons(){
     const isFull = !!document.fullscreenElement;
